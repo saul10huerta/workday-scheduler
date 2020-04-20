@@ -6,9 +6,26 @@ $("#currentDay").text(todaysDate);
 
 console.log(todaysDate);
 
-// change colors of rows based on hours
+// change colors of rows based on hour
 
+var auditTask = function() {
+    var hourRn = moment().hours();
+    console.log(hourRn);
 
+    $('.row').each(function(){
+        var rowHour = parseInt($('.row').attr("id").split(" ")[0]);
+        if (rowHour < hourRn) {
+            $('.row').addClass("past");
+        } else if (rowHour === hourRn) {
+            $('.row').removeClass("past");
+            $('.row').addClass("present");
+        } else {
+            $('.row').removeClass("past");
+            $('.row').addClass("present");
+            $('.row').addClass("future");
+        }
+    });
+}
 
 // check to see if there are already tasks list saved in local storage
 
@@ -42,3 +59,7 @@ $(".saveBtn").on("click", function() {
     localStorage.setItem("tasklist", JSON.stringify(tasks));
 
 });
+
+auditTask();
+
+setInterval(auditTask,(1000 * 60) * 10);
