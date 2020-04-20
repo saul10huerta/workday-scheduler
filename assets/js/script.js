@@ -25,6 +25,7 @@ var renderTasks = function() {
 
 renderTasks();
 
+// save work day task on button click
 $(".saveBtn").on("click", function() {
     
     var textInput = function() {
