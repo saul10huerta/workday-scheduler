@@ -13,7 +13,7 @@ A simple calendar application that allows a user to save events for each hour of
 ## Link to webpage
 https://saul10huerta.github.io/workday-scheduler/
 
-![](.png)
+![](workday-schedule.png)
 
 ### Contribution
 Made by Saul Huerta
