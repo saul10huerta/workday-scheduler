@@ -12,20 +12,25 @@ var auditTask = function() {
     var hourRn = moment().hours();
     console.log(hourRn);
 
-    $('.row').each(function(){
-        var rowHour = parseInt($('.row').attr("id").split(" ")[0]);
+    $('.time-block').each(function(){
+        var rowHour = parseInt($(this).attr("id").split("-")[1]);
+        console.log(rowHour);
         if (rowHour < hourRn) {
-            $('.row').addClass("past");
+            $(this).addClass("past");
         } else if (rowHour === hourRn) {
-            $('.row').removeClass("past");
-            $('.row').addClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("present");
         } else {
-            $('.row').removeClass("past");
-            $('.row').addClass("present");
-            $('.row').addClass("future");
+            $(this).removeClass("past");
+            $(this).addClass("present");
+            $(this).addClass("future");
         }
     });
 }
+
+auditTask();
+
+setInterval(auditTask,(1000 * 60) * 10);
 
 // check to see if there are already tasks list saved in local storage
 
@@ -59,7 +64,3 @@ $(".saveBtn").on("click", function() {
     localStorage.setItem("tasklist", JSON.stringify(tasks));
 
 });
-
-auditTask();
-
-setInterval(auditTask,(1000 * 60) * 10);
