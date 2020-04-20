@@ -6,6 +6,8 @@ $("#currentDay").text(todaysDate);
 
 console.log(todaysDate);
 
+// change colors of rows based on hours
+
 
 
 // check to see if there are already tasks list saved in local storage
